@@ -8,8 +8,8 @@ PID *yLoop; // forward/back
 PID *zLoop; // up/down
 // Rotations - use right hand rule
 PID *pitchLoop; // around x-axis
-PID *yawLoop; // around z-axis
 PID *rollLoop; // around y-axis
+PID *yawLoop; // around z-axis
 
 void setup() {
   for(int i=0; i<6; i++) {
@@ -18,11 +18,45 @@ void setup() {
   xLoop = pidLoops[0];
   yLoop = pidLoops[1];
   zLoop = pidLoops[2];
-  pitchLoop = pidLoops[3];
-  yawLoop = pidLoops[4];
-  rollLoop = pidLoops[5];
+  yawLoop = pidLoops[3];
 }
 
 void loop() {
+  // Check for Operator Inputs and set setpoints
+  // Check for new sensor data
+  // TODO Later
+}
+
+void MotorUpdate() {
+  //Uses the Pid Loops, does math to find individual motor values.
   
 }
+
+void SetMotor(int index, double value){
+  //Set motors based on the PidLoopers
+  //TODO Later
+}
+
+void NewValues(boolean Accel, double xpitch, double yroll, double zyaw) {
+  //Updates PID loops with new data, and updates motor outputs.
+
+//  x = 
+//  y = 
+//  z = 
+
+  //TODO Calculate current position and rotation based on new sensor data
+  if (Accel){
+    pidLoops[0].input(x);
+    pidLoops[1].input(y);
+    pidLoops[2].input(z);
+  } else {
+    pitch = xpitch
+    roll = yroll
+    yaw = zyaw
+    pidLoops[3].input(yaw);
+  }
+  MotorUpdate();
+}
+
+
+
